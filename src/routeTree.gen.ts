@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServiceBoardRouteImport } from './routes/service-board'
+import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as KnowledgeBaseRouteImport } from './routes/knowledge-base'
 import { Route as ActivitiesRouteImport } from './routes/activities'
 import { Route as IndexRouteImport } from './routes/index'
@@ -25,6 +26,11 @@ import { Route as CompaniesIdRouteImport } from './routes/companies.$id'
 const ServiceBoardRoute = ServiceBoardRouteImport.update({
   id: '/service-board',
   path: '/service-board',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KnowledgeBaseRoute = KnowledgeBaseRouteImport.update({
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
   '/knowledge-base': typeof KnowledgeBaseRoute
+  '/reports': typeof ReportsRoute
   '/service-board': typeof ServiceBoardRoute
   '/companies/$id': typeof CompaniesIdRoute
   '/configurations/$id': typeof ConfigurationsIdRoute
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
   '/knowledge-base': typeof KnowledgeBaseRoute
+  '/reports': typeof ReportsRoute
   '/service-board': typeof ServiceBoardRoute
   '/companies/$id': typeof CompaniesIdRoute
   '/configurations/$id': typeof ConfigurationsIdRoute
@@ -116,6 +124,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
   '/knowledge-base': typeof KnowledgeBaseRoute
+  '/reports': typeof ReportsRoute
   '/service-board': typeof ServiceBoardRoute
   '/companies/$id': typeof CompaniesIdRoute
   '/configurations/$id': typeof ConfigurationsIdRoute
@@ -132,6 +141,7 @@ export interface FileRouteTypes {
     | '/'
     | '/activities'
     | '/knowledge-base'
+    | '/reports'
     | '/service-board'
     | '/companies/$id'
     | '/configurations/$id'
@@ -146,6 +156,7 @@ export interface FileRouteTypes {
     | '/'
     | '/activities'
     | '/knowledge-base'
+    | '/reports'
     | '/service-board'
     | '/companies/$id'
     | '/configurations/$id'
@@ -160,6 +171,7 @@ export interface FileRouteTypes {
     | '/'
     | '/activities'
     | '/knowledge-base'
+    | '/reports'
     | '/service-board'
     | '/companies/$id'
     | '/configurations/$id'
@@ -175,6 +187,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ActivitiesRoute: typeof ActivitiesRoute
   KnowledgeBaseRoute: typeof KnowledgeBaseRoute
+  ReportsRoute: typeof ReportsRoute
   ServiceBoardRoute: typeof ServiceBoardRoute
   CompaniesIdRoute: typeof CompaniesIdRoute
   ConfigurationsIdRoute: typeof ConfigurationsIdRoute
@@ -193,6 +206,13 @@ declare module '@tanstack/react-router' {
       path: '/service-board'
       fullPath: '/service-board'
       preLoaderRoute: typeof ServiceBoardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/knowledge-base': {
@@ -279,6 +299,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ActivitiesRoute: ActivitiesRoute,
   KnowledgeBaseRoute: KnowledgeBaseRoute,
+  ReportsRoute: ReportsRoute,
   ServiceBoardRoute: ServiceBoardRoute,
   CompaniesIdRoute: CompaniesIdRoute,
   ConfigurationsIdRoute: ConfigurationsIdRoute,
