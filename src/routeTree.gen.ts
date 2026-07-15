@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ServiceBoardRouteImport } from './routes/service-board'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as KnowledgeBaseRouteImport } from './routes/knowledge-base'
@@ -23,6 +24,11 @@ import { Route as ContactsIdRouteImport } from './routes/contacts.$id'
 import { Route as ConfigurationsIdRouteImport } from './routes/configurations.$id'
 import { Route as CompaniesIdRouteImport } from './routes/companies.$id'
 
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServiceBoardRoute = ServiceBoardRouteImport.update({
   id: '/service-board',
   path: '/service-board',
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/knowledge-base': typeof KnowledgeBaseRoute
   '/reports': typeof ReportsRoute
   '/service-board': typeof ServiceBoardRoute
+  '/settings': typeof SettingsRoute
   '/companies/$id': typeof CompaniesIdRoute
   '/configurations/$id': typeof ConfigurationsIdRoute
   '/contacts/$id': typeof ContactsIdRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/knowledge-base': typeof KnowledgeBaseRoute
   '/reports': typeof ReportsRoute
   '/service-board': typeof ServiceBoardRoute
+  '/settings': typeof SettingsRoute
   '/companies/$id': typeof CompaniesIdRoute
   '/configurations/$id': typeof ConfigurationsIdRoute
   '/contacts/$id': typeof ContactsIdRoute
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/knowledge-base': typeof KnowledgeBaseRoute
   '/reports': typeof ReportsRoute
   '/service-board': typeof ServiceBoardRoute
+  '/settings': typeof SettingsRoute
   '/companies/$id': typeof CompaniesIdRoute
   '/configurations/$id': typeof ConfigurationsIdRoute
   '/contacts/$id': typeof ContactsIdRoute
@@ -143,6 +152,7 @@ export interface FileRouteTypes {
     | '/knowledge-base'
     | '/reports'
     | '/service-board'
+    | '/settings'
     | '/companies/$id'
     | '/configurations/$id'
     | '/contacts/$id'
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/knowledge-base'
     | '/reports'
     | '/service-board'
+    | '/settings'
     | '/companies/$id'
     | '/configurations/$id'
     | '/contacts/$id'
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/knowledge-base'
     | '/reports'
     | '/service-board'
+    | '/settings'
     | '/companies/$id'
     | '/configurations/$id'
     | '/contacts/$id'
@@ -189,6 +201,7 @@ export interface RootRouteChildren {
   KnowledgeBaseRoute: typeof KnowledgeBaseRoute
   ReportsRoute: typeof ReportsRoute
   ServiceBoardRoute: typeof ServiceBoardRoute
+  SettingsRoute: typeof SettingsRoute
   CompaniesIdRoute: typeof CompaniesIdRoute
   ConfigurationsIdRoute: typeof ConfigurationsIdRoute
   ContactsIdRoute: typeof ContactsIdRoute
@@ -201,6 +214,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/service-board': {
       id: '/service-board'
       path: '/service-board'
@@ -301,6 +321,7 @@ const rootRouteChildren: RootRouteChildren = {
   KnowledgeBaseRoute: KnowledgeBaseRoute,
   ReportsRoute: ReportsRoute,
   ServiceBoardRoute: ServiceBoardRoute,
+  SettingsRoute: SettingsRoute,
   CompaniesIdRoute: CompaniesIdRoute,
   ConfigurationsIdRoute: ConfigurationsIdRoute,
   ContactsIdRoute: ContactsIdRoute,

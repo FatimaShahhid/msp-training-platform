@@ -156,11 +156,13 @@ function StatCard({
   return to ? <Link to={to as never}>{body}</Link> : body;
 }
 
-function TicketMiniList({ tickets }: { tickets: ReturnType<typeof useMsp<any>> extends any ? any[] : never }) {
+import type { Ticket } from "@/lib/msp/types";
+
+function TicketMiniList({ tickets }: { tickets: Ticket[] }) {
   if (!tickets.length) return <p className="text-sm text-muted-foreground">Nothing here.</p>;
   return (
     <ul className="divide-y divide-border">
-      {tickets.map((t: any) => (
+      {tickets.map((t) => (
         <li key={t.id} className="py-2">
           <Link to="/tickets/$id" params={{ id: t.id }} className="block hover:bg-accent/40 -mx-2 px-2 rounded">
             <div className="flex items-center gap-2 text-sm">
