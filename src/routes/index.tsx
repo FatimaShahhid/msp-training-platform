@@ -157,8 +157,6 @@ function StatCard({
   return to ? <Link to={to as never}>{body}</Link> : body;
 }
 
-import type { Ticket } from "@/lib/msp/types";
-
 function TicketMiniList({ tickets }: { tickets: Ticket[] }) {
   if (!tickets.length) return <p className="text-sm text-muted-foreground">Nothing here.</p>;
   return (
