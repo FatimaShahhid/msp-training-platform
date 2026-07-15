@@ -9,38 +9,186 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ServiceBoardRouteImport } from './routes/service-board'
+import { Route as ActivitiesRouteImport } from './routes/activities'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactsIndexRouteImport } from './routes/contacts.index'
+import { Route as ConfigurationsIndexRouteImport } from './routes/configurations.index'
+import { Route as CompaniesIndexRouteImport } from './routes/companies.index'
+import { Route as TicketsNewRouteImport } from './routes/tickets.new'
+import { Route as TicketsIdRouteImport } from './routes/tickets.$id'
+import { Route as ContactsIdRouteImport } from './routes/contacts.$id'
+import { Route as ConfigurationsIdRouteImport } from './routes/configurations.$id'
+import { Route as CompaniesIdRouteImport } from './routes/companies.$id'
 
+const ServiceBoardRoute = ServiceBoardRouteImport.update({
+  id: '/service-board',
+  path: '/service-board',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivitiesRoute = ActivitiesRouteImport.update({
+  id: '/activities',
+  path: '/activities',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactsIndexRoute = ContactsIndexRouteImport.update({
+  id: '/contacts/',
+  path: '/contacts/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfigurationsIndexRoute = ConfigurationsIndexRouteImport.update({
+  id: '/configurations/',
+  path: '/configurations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompaniesIndexRoute = CompaniesIndexRouteImport.update({
+  id: '/companies/',
+  path: '/companies/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TicketsNewRoute = TicketsNewRouteImport.update({
+  id: '/tickets/new',
+  path: '/tickets/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TicketsIdRoute = TicketsIdRouteImport.update({
+  id: '/tickets/$id',
+  path: '/tickets/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactsIdRoute = ContactsIdRouteImport.update({
+  id: '/contacts/$id',
+  path: '/contacts/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfigurationsIdRoute = ConfigurationsIdRouteImport.update({
+  id: '/configurations/$id',
+  path: '/configurations/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompaniesIdRoute = CompaniesIdRouteImport.update({
+  id: '/companies/$id',
+  path: '/companies/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/activities': typeof ActivitiesRoute
+  '/service-board': typeof ServiceBoardRoute
+  '/companies/$id': typeof CompaniesIdRoute
+  '/configurations/$id': typeof ConfigurationsIdRoute
+  '/contacts/$id': typeof ContactsIdRoute
+  '/tickets/$id': typeof TicketsIdRoute
+  '/tickets/new': typeof TicketsNewRoute
+  '/companies/': typeof CompaniesIndexRoute
+  '/configurations/': typeof ConfigurationsIndexRoute
+  '/contacts/': typeof ContactsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/activities': typeof ActivitiesRoute
+  '/service-board': typeof ServiceBoardRoute
+  '/companies/$id': typeof CompaniesIdRoute
+  '/configurations/$id': typeof ConfigurationsIdRoute
+  '/contacts/$id': typeof ContactsIdRoute
+  '/tickets/$id': typeof TicketsIdRoute
+  '/tickets/new': typeof TicketsNewRoute
+  '/companies': typeof CompaniesIndexRoute
+  '/configurations': typeof ConfigurationsIndexRoute
+  '/contacts': typeof ContactsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/activities': typeof ActivitiesRoute
+  '/service-board': typeof ServiceBoardRoute
+  '/companies/$id': typeof CompaniesIdRoute
+  '/configurations/$id': typeof ConfigurationsIdRoute
+  '/contacts/$id': typeof ContactsIdRoute
+  '/tickets/$id': typeof TicketsIdRoute
+  '/tickets/new': typeof TicketsNewRoute
+  '/companies/': typeof CompaniesIndexRoute
+  '/configurations/': typeof ConfigurationsIndexRoute
+  '/contacts/': typeof ContactsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/activities'
+    | '/service-board'
+    | '/companies/$id'
+    | '/configurations/$id'
+    | '/contacts/$id'
+    | '/tickets/$id'
+    | '/tickets/new'
+    | '/companies/'
+    | '/configurations/'
+    | '/contacts/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/activities'
+    | '/service-board'
+    | '/companies/$id'
+    | '/configurations/$id'
+    | '/contacts/$id'
+    | '/tickets/$id'
+    | '/tickets/new'
+    | '/companies'
+    | '/configurations'
+    | '/contacts'
+  id:
+    | '__root__'
+    | '/'
+    | '/activities'
+    | '/service-board'
+    | '/companies/$id'
+    | '/configurations/$id'
+    | '/contacts/$id'
+    | '/tickets/$id'
+    | '/tickets/new'
+    | '/companies/'
+    | '/configurations/'
+    | '/contacts/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ActivitiesRoute: typeof ActivitiesRoute
+  ServiceBoardRoute: typeof ServiceBoardRoute
+  CompaniesIdRoute: typeof CompaniesIdRoute
+  ConfigurationsIdRoute: typeof ConfigurationsIdRoute
+  ContactsIdRoute: typeof ContactsIdRoute
+  TicketsIdRoute: typeof TicketsIdRoute
+  TicketsNewRoute: typeof TicketsNewRoute
+  CompaniesIndexRoute: typeof CompaniesIndexRoute
+  ConfigurationsIndexRoute: typeof ConfigurationsIndexRoute
+  ContactsIndexRoute: typeof ContactsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/service-board': {
+      id: '/service-board'
+      path: '/service-board'
+      fullPath: '/service-board'
+      preLoaderRoute: typeof ServiceBoardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activities': {
+      id: '/activities'
+      path: '/activities'
+      fullPath: '/activities'
+      preLoaderRoute: typeof ActivitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +196,78 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacts/': {
+      id: '/contacts/'
+      path: '/contacts'
+      fullPath: '/contacts/'
+      preLoaderRoute: typeof ContactsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/configurations/': {
+      id: '/configurations/'
+      path: '/configurations'
+      fullPath: '/configurations/'
+      preLoaderRoute: typeof ConfigurationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/companies/': {
+      id: '/companies/'
+      path: '/companies'
+      fullPath: '/companies/'
+      preLoaderRoute: typeof CompaniesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tickets/new': {
+      id: '/tickets/new'
+      path: '/tickets/new'
+      fullPath: '/tickets/new'
+      preLoaderRoute: typeof TicketsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tickets/$id': {
+      id: '/tickets/$id'
+      path: '/tickets/$id'
+      fullPath: '/tickets/$id'
+      preLoaderRoute: typeof TicketsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacts/$id': {
+      id: '/contacts/$id'
+      path: '/contacts/$id'
+      fullPath: '/contacts/$id'
+      preLoaderRoute: typeof ContactsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/configurations/$id': {
+      id: '/configurations/$id'
+      path: '/configurations/$id'
+      fullPath: '/configurations/$id'
+      preLoaderRoute: typeof ConfigurationsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/companies/$id': {
+      id: '/companies/$id'
+      path: '/companies/$id'
+      fullPath: '/companies/$id'
+      preLoaderRoute: typeof CompaniesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ActivitiesRoute: ActivitiesRoute,
+  ServiceBoardRoute: ServiceBoardRoute,
+  CompaniesIdRoute: CompaniesIdRoute,
+  ConfigurationsIdRoute: ConfigurationsIdRoute,
+  ContactsIdRoute: ContactsIdRoute,
+  TicketsIdRoute: TicketsIdRoute,
+  TicketsNewRoute: TicketsNewRoute,
+  CompaniesIndexRoute: CompaniesIndexRoute,
+  ConfigurationsIndexRoute: ConfigurationsIndexRoute,
+  ContactsIndexRoute: ContactsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
