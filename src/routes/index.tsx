@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PriorityBadge, StatusBadge } from "@/components/msp/Badges";
 import { useMsp } from "@/lib/msp/store";
+import type { Ticket } from "@/lib/msp/types";
 import { formatDistanceToNowStrict } from "date-fns";
 
 export const Route = createFileRoute("/")({
