@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
-import { AlertTriangle, Clock, Inbox, TicketCheck, User, Zap } from "lucide-react";
+import { AlertTriangle, Clock, Inbox, User, Zap } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
