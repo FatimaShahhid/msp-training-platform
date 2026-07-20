@@ -56,7 +56,7 @@ function Settings() {
       <Card>
         <CardHeader><CardTitle className="text-base">About</CardTitle></CardHeader>
         <CardContent className="text-sm text-muted-foreground">
-          MSP Academy v2.2 — a standalone Tier 1 service desk training simulator. All data is stored in your browser's local storage. No network calls are made.
+          MSP Training Platform — a standalone Tier 1 service desk training simulator. All data is stored in your browser's local storage. No network calls are made.
         </CardContent>
       </Card>
     </div>

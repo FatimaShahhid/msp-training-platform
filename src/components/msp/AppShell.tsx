@@ -59,7 +59,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               M
             </div>
             <div>
-              <div className="text-sm font-semibold text-sidebar-foreground">MSP Academy</div>
+              <div className="text-sm font-semibold text-sidebar-foreground">MSP Training Platform</div>
               <div className="text-xs text-muted-foreground">Training Simulator</div>
             </div>
           </div>
