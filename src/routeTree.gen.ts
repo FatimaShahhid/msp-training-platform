@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrainingModulesRouteImport } from './routes/training-modules'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ServiceBoardRouteImport } from './routes/service-board'
 import { Route as ReportsRouteImport } from './routes/reports'
@@ -24,6 +25,11 @@ import { Route as ContactsIdRouteImport } from './routes/contacts.$id'
 import { Route as ConfigurationsIdRouteImport } from './routes/configurations.$id'
 import { Route as CompaniesIdRouteImport } from './routes/companies.$id'
 
+const TrainingModulesRoute = TrainingModulesRouteImport.update({
+  id: '/training-modules',
+  path: '/training-modules',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SettingsRoute = SettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/reports': typeof ReportsRoute
   '/service-board': typeof ServiceBoardRoute
   '/settings': typeof SettingsRoute
+  '/training-modules': typeof TrainingModulesRoute
   '/companies/$id': typeof CompaniesIdRoute
   '/configurations/$id': typeof ConfigurationsIdRoute
   '/contacts/$id': typeof ContactsIdRoute
@@ -118,6 +125,7 @@ export interface FileRoutesByTo {
   '/reports': typeof ReportsRoute
   '/service-board': typeof ServiceBoardRoute
   '/settings': typeof SettingsRoute
+  '/training-modules': typeof TrainingModulesRoute
   '/companies/$id': typeof CompaniesIdRoute
   '/configurations/$id': typeof ConfigurationsIdRoute
   '/contacts/$id': typeof ContactsIdRoute
@@ -135,6 +143,7 @@ export interface FileRoutesById {
   '/reports': typeof ReportsRoute
   '/service-board': typeof ServiceBoardRoute
   '/settings': typeof SettingsRoute
+  '/training-modules': typeof TrainingModulesRoute
   '/companies/$id': typeof CompaniesIdRoute
   '/configurations/$id': typeof ConfigurationsIdRoute
   '/contacts/$id': typeof ContactsIdRoute
@@ -153,6 +162,7 @@ export interface FileRouteTypes {
     | '/reports'
     | '/service-board'
     | '/settings'
+    | '/training-modules'
     | '/companies/$id'
     | '/configurations/$id'
     | '/contacts/$id'
@@ -169,6 +179,7 @@ export interface FileRouteTypes {
     | '/reports'
     | '/service-board'
     | '/settings'
+    | '/training-modules'
     | '/companies/$id'
     | '/configurations/$id'
     | '/contacts/$id'
@@ -185,6 +196,7 @@ export interface FileRouteTypes {
     | '/reports'
     | '/service-board'
     | '/settings'
+    | '/training-modules'
     | '/companies/$id'
     | '/configurations/$id'
     | '/contacts/$id'
@@ -202,6 +214,7 @@ export interface RootRouteChildren {
   ReportsRoute: typeof ReportsRoute
   ServiceBoardRoute: typeof ServiceBoardRoute
   SettingsRoute: typeof SettingsRoute
+  TrainingModulesRoute: typeof TrainingModulesRoute
   CompaniesIdRoute: typeof CompaniesIdRoute
   ConfigurationsIdRoute: typeof ConfigurationsIdRoute
   ContactsIdRoute: typeof ContactsIdRoute
@@ -214,6 +227,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/training-modules': {
+      id: '/training-modules'
+      path: '/training-modules'
+      fullPath: '/training-modules'
+      preLoaderRoute: typeof TrainingModulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/settings': {
       id: '/settings'
       path: '/settings'
@@ -322,6 +342,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReportsRoute: ReportsRoute,
   ServiceBoardRoute: ServiceBoardRoute,
   SettingsRoute: SettingsRoute,
+  TrainingModulesRoute: TrainingModulesRoute,
   CompaniesIdRoute: CompaniesIdRoute,
   ConfigurationsIdRoute: ConfigurationsIdRoute,
   ContactsIdRoute: ContactsIdRoute,
