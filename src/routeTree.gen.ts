@@ -12,7 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TrainingModulesRouteImport } from './routes/training-modules'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ServiceBoardRouteImport } from './routes/service-board'
+import { Route as ScenariosRouteImport } from './routes/scenarios'
 import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as ProgressRouteImport } from './routes/progress'
 import { Route as KnowledgeBaseRouteImport } from './routes/knowledge-base'
 import { Route as ActivitiesRouteImport } from './routes/activities'
 import { Route as IndexRouteImport } from './routes/index'
@@ -40,9 +42,19 @@ const ServiceBoardRoute = ServiceBoardRouteImport.update({
   path: '/service-board',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScenariosRoute = ScenariosRouteImport.update({
+  id: '/scenarios',
+  path: '/scenarios',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReportsRoute = ReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressRoute = ProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KnowledgeBaseRoute = KnowledgeBaseRouteImport.update({
@@ -105,7 +117,9 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
   '/knowledge-base': typeof KnowledgeBaseRoute
+  '/progress': typeof ProgressRoute
   '/reports': typeof ReportsRoute
+  '/scenarios': typeof ScenariosRoute
   '/service-board': typeof ServiceBoardRoute
   '/settings': typeof SettingsRoute
   '/training-modules': typeof TrainingModulesRoute
@@ -122,7 +136,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
   '/knowledge-base': typeof KnowledgeBaseRoute
+  '/progress': typeof ProgressRoute
   '/reports': typeof ReportsRoute
+  '/scenarios': typeof ScenariosRoute
   '/service-board': typeof ServiceBoardRoute
   '/settings': typeof SettingsRoute
   '/training-modules': typeof TrainingModulesRoute
@@ -140,7 +156,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
   '/knowledge-base': typeof KnowledgeBaseRoute
+  '/progress': typeof ProgressRoute
   '/reports': typeof ReportsRoute
+  '/scenarios': typeof ScenariosRoute
   '/service-board': typeof ServiceBoardRoute
   '/settings': typeof SettingsRoute
   '/training-modules': typeof TrainingModulesRoute
@@ -159,7 +177,9 @@ export interface FileRouteTypes {
     | '/'
     | '/activities'
     | '/knowledge-base'
+    | '/progress'
     | '/reports'
+    | '/scenarios'
     | '/service-board'
     | '/settings'
     | '/training-modules'
@@ -176,7 +196,9 @@ export interface FileRouteTypes {
     | '/'
     | '/activities'
     | '/knowledge-base'
+    | '/progress'
     | '/reports'
+    | '/scenarios'
     | '/service-board'
     | '/settings'
     | '/training-modules'
@@ -193,7 +215,9 @@ export interface FileRouteTypes {
     | '/'
     | '/activities'
     | '/knowledge-base'
+    | '/progress'
     | '/reports'
+    | '/scenarios'
     | '/service-board'
     | '/settings'
     | '/training-modules'
@@ -211,7 +235,9 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ActivitiesRoute: typeof ActivitiesRoute
   KnowledgeBaseRoute: typeof KnowledgeBaseRoute
+  ProgressRoute: typeof ProgressRoute
   ReportsRoute: typeof ReportsRoute
+  ScenariosRoute: typeof ScenariosRoute
   ServiceBoardRoute: typeof ServiceBoardRoute
   SettingsRoute: typeof SettingsRoute
   TrainingModulesRoute: typeof TrainingModulesRoute
@@ -248,11 +274,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiceBoardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/scenarios': {
+      id: '/scenarios'
+      path: '/scenarios'
+      fullPath: '/scenarios'
+      preLoaderRoute: typeof ScenariosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reports': {
       id: '/reports'
       path: '/reports'
       fullPath: '/reports'
       preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/progress': {
+      id: '/progress'
+      path: '/progress'
+      fullPath: '/progress'
+      preLoaderRoute: typeof ProgressRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/knowledge-base': {
@@ -339,7 +379,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ActivitiesRoute: ActivitiesRoute,
   KnowledgeBaseRoute: KnowledgeBaseRoute,
+  ProgressRoute: ProgressRoute,
   ReportsRoute: ReportsRoute,
+  ScenariosRoute: ScenariosRoute,
   ServiceBoardRoute: ServiceBoardRoute,
   SettingsRoute: SettingsRoute,
   TrainingModulesRoute: TrainingModulesRoute,
