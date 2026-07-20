@@ -79,10 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MSP Academy – Help Desk Training Simulator" },
+      { title: "MSP Training Platform – Help Desk Training Simulator" },
       { name: "description", content: "Standalone MSP help desk training simulator for Tier 1 service desk workflows." },
-      { name: "author", content: "MSP Academy" },
-      { property: "og:title", content: "MSP Academy – Help Desk Training Simulator" },
+      { name: "author", content: "MSP Training Platform" },
+      { property: "og:title", content: "MSP Training Platform – Help Desk Training Simulator" },
       { property: "og:description", content: "Practice tickets, dispatch, SLAs, and audit trails in a realistic PSA-inspired UI." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
