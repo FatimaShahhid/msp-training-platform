@@ -1,17 +1,13 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   LayoutDashboard,
-  Ticket as TicketIcon,
-  Building2,
-  Users,
-  Server,
-  Activity,
   BookOpen,
-  BarChart3,
   Settings,
   Search,
-  Plus,
   LogOut,
+  GraduationCap,
+  ClipboardList,
+  TrendingUp,
 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 
@@ -29,13 +25,10 @@ type NavItem = {
 
 const NAV: NavItem[] = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard, exact: true },
-  { to: "/service-board", label: "Service Board", icon: TicketIcon },
-  { to: "/companies", label: "Companies", icon: Building2 },
-  { to: "/contacts", label: "Contacts", icon: Users },
-  { to: "/configurations", label: "Configurations", icon: Server },
-  { to: "/activities", label: "Activities", icon: Activity },
+  { to: "/training-modules", label: "Training Modules", icon: GraduationCap },
+  { to: "/scenarios", label: "Scenarios", icon: ClipboardList },
   { to: "/knowledge-base", label: "Knowledge Base", icon: BookOpen },
-  { to: "/reports", label: "Reports", icon: BarChart3 },
+  { to: "/progress", label: "Progress", icon: TrendingUp },
   { to: "/settings", label: "Settings", icon: Settings },
 ];
 
@@ -60,7 +53,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </div>
             <div>
               <div className="text-sm font-semibold text-sidebar-foreground">MSP Training Platform</div>
-              <div className="text-xs text-muted-foreground">Training Simulator</div>
+              <div className="text-xs text-muted-foreground">Learning Hub</div>
             </div>
           </div>
           <nav className="flex-1 py-2">
@@ -98,11 +91,6 @@ export function AppShell({ children }: { children: ReactNode }) {
                 className="pl-8 h-9"
               />
             </div>
-            <Link to="/tickets/new">
-              <Button size="sm" className="gap-1">
-                <Plus className="h-4 w-4" /> New Ticket
-              </Button>
-            </Link>
             <div className="flex items-center gap-2 pl-3 border-l border-border">
               <div className="h-8 w-8 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-semibold">
                 {me?.initials ?? "?"}
